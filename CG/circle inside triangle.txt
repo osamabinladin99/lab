@@ -1,14 +1,30 @@
-#include<graphics.h>
-#include<conio.h>
+#include <graphics.h>
+#include <conio.h>
+
 int main()
 {
-int gd=DETECT,gm;
-initgraph(&gd,&gm,"C:\\turboC3\\bgi");
-line(150,200,300,200);
-line(220,90,300,200);
-line(150,200,220,90);
-circle(222,160,40);
-getch();
-closegraph();
-return 0;
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "C:\\turboC3\\bgi");
+
+    // Draw the triangle
+    line(150, 200, 300, 200);
+    line(220, 90, 300, 200);
+    line(150, 200, 220, 90);
+
+    // Set the fill style for red color (SOLID_FILL is used for a solid color)
+    setfillstyle(SOLID_FILL, RED);
+
+    // Fill the triangle with red color
+    int points[] = {150, 200, 300, 200, 220, 90, 150, 200}; // Coordinates of the triangle
+    fillpoly(4, points);  // Fill the polygon (triangle) with red color
+
+    // Draw the circle
+    circle(222, 160, 40);
+
+    // Fill the circle with red color
+    floodfill(222, 160, RED);  // Flood fill the circle with red color
+
+    getch();
+    closegraph();
+    return 0;
 }
